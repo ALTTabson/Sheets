@@ -98,7 +98,8 @@ const HPHeart = ({ ch, deathSaves, setDeathSaves, onHeal, onDamage }) => {
   );
 };
 
-const ShortRestModal = ({ ch, hitDice, setHitDice, onHeal, onClose, onFinalize }) => {
+const ShortRestModal = ({ ch, hitDice, setHitDice, spells, setSpells, onHeal, onClose, onFinalize }) => {
+  const [arcaneUsed, setArcaneUsed] = React.useState(false);
   const rollHitDie = (die) => {
     if (hitDice[die].current <= 0) return;
     setHitDice(prev => ({ ...prev, [die]: { ...prev[die], current: prev[die].current - 1 } }));
@@ -107,6 +108,36 @@ const ShortRestModal = ({ ch, hitDice, setHitDice, onHeal, onClose, onFinalize }
     const conMod = abilityMod(ch.abilities.CON);
     const healAmount = Math.max(1, roll + conMod);
     onHeal(healAmount);
+  };
+
+  const hasArcaneRecovery = ch.features.passives?.some(p => p.id === "arcaneRecovery");
+  
+  const handleArcaneRecovery = () => {
+    if (!spells || arcaneUsed) return;
+    
+    // Nível de recuperação: metade do nível de mago arredondado pra cima.
+    // Usamos o ch.meta.level como referência por simplicidade.
+    const recoveryLevel = Math.ceil(ch.meta.level / 2);
+    
+    if (spells.system === "points" && spells.points) {
+      // Regra da variante: Recupera pontos igual ao custo combinado dos slots.
+      // Para simplificar, assumimos que seria o equivalente a 1 slot do nível mais alto possível (até o recoveryLevel),
+      // ou apenas pontos diretamente. Na variante (DMG 289), recuperar X níveis de slots = recuperar pontos.
+      // 1 nível = 2, 2 níveis = 3, 3 níveis = 5, 4 níveis = 6.
+      // Mapearemos o custo correspondente ao nível de recuperação como se fosse um único slot desse nível,
+      // ou a soma de slots de nível 1. Vamos seguir a tabela de custos de pontos de magia.
+      const SPELL_POINT_COSTS = { 1: 2, 2: 3, 3: 5, 4: 6, 5: 7, 6: 9, 7: 10, 8: 11, 9: 13 };
+      const ptsToRecover = SPELL_POINT_COSTS[recoveryLevel] || (recoveryLevel * 2);
+      
+      setSpells(st => ({ 
+        ...st, 
+        points: { 
+          ...st.points, 
+          current: Math.min(st.points.max, st.points.current + ptsToRecover) 
+        } 
+      }));
+    }
+    setArcaneUsed(true);
   };
 
   return (
@@ -135,6 +166,21 @@ const ShortRestModal = ({ ch, hitDice, setHitDice, onHeal, onClose, onFinalize }
             </div>
           ))}
         </div>
+        
+        {hasArcaneRecovery && (
+          <div style={{ marginTop: 20, borderTop: "1px dashed var(--c-edge-2)", paddingTop: 16 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div>
+                <div style={{ fontFamily: "var(--font-pixel)", fontSize: 10, color: "var(--c-accent)", marginBottom: 4 }}>RECUPERAÇÃO ARCANA</div>
+                <div style={{ fontSize: 12, color: "var(--c-ink-d)" }}>Recupera slots / pontos de magia.</div>
+              </div>
+              <button className="modal-btn" onClick={handleArcaneRecovery} disabled={arcaneUsed || !spells} style={{ margin: 0 }}>
+                {arcaneUsed ? "UTILIZADO" : "USAR"}
+              </button>
+            </div>
+          </div>
+        )}
+
         <div className="rest-modal-actions">
           <button className="modal-btn" onClick={onClose} style={{ flex: 1 }}>CANCELAR</button>
           <button className="modal-btn primary" onClick={onFinalize} style={{ flex: 2 }}>FINALIZAR DESCANSO</button>

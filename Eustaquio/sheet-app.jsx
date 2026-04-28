@@ -237,6 +237,8 @@ const Sheet = ({ initialData, onBack }) => {
             ch={ch}
             hitDice={hitDice}
             setHitDice={setHitDice}
+            spells={spells}
+            setSpells={setSpells}
             onHeal={onHeal}
             onClose={() => setShowRestModal(false)}
             onFinalize={finalizeShortRest}

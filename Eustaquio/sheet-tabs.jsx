@@ -57,6 +57,17 @@ const TabOverview = ({ ch, onRoll, deathSaves, setDeathSaves, onHeal, onDamage,
         <div className="section-head">Recursos</div>
         <Resources resources={resources} setResources={setResources} />
       </Panel>
+      <Panel>
+        <div className="section-head">Características Passivas <span className="count">{ch.features.passives.length}</span></div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          {ch.features.passives.map(p => (
+            <div key={p.id} className="feature-card">
+              <div className="fnm">{p.name}</div>
+              <div className="fdesc">{p.desc}</div>
+            </div>
+          ))}
+        </div>
+      </Panel>
     </div>
   </div>
 );
@@ -306,16 +317,6 @@ const TabPersona = ({ ch }) => (
           <div className="story-block"><h4>Defeitos</h4><p>{ch.story.flaws}</p></div>
           <div className="story-block"><h4>Personalidade</h4><p>{ch.story.personality}</p></div>
         </div>
-      </Panel>
-      <Panel>
-        <div className="section-head">Características Passivas <span className="count">{ch.features.passives.length}</span></div>
-        {ch.features.passives.map(p => (
-          <div key={p.id} className="feature-card">
-            <div className="fnm">{p.name}</div>
-            <div className="fdesc">{p.desc}</div>
-          </div>
-        ))}
-      </Panel>
     </div>
   </div>
 );

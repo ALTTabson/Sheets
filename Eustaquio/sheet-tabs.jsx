@@ -320,6 +320,10 @@ const TabPersona = ({ ch }) => (
   </div>
 );
 
+const SPELL_POINT_COSTS = {
+  1: 2, 2: 3, 3: 5, 4: 6, 5: 7, 6: 9, 7: 10, 8: 11, 9: 13
+};
+
 /* ============ Magias ============ */
 const TabSpells = ({ ch, spells, setSpells }) => {
   const [editing, setEditing] = useState(null);
@@ -347,6 +351,16 @@ const TabSpells = ({ ch, spells, setSpells }) => {
     setEditing(null);
   };
 
+  const castWithPoints = (lvl) => {
+    if (lvl === 0 || spells.system !== "points" || !spells.points) return;
+    const cost = SPELL_POINT_COSTS[lvl];
+    if (spells.points.current >= cost) {
+      setSpells(st => ({ ...st, points: { ...st.points, current: st.points.current - cost } }));
+    } else {
+      alert(`Pontos insuficientes! Requer ${cost} pontos.`);
+    }
+  };
+
   const filteredSpells = spells.known.filter(s => s.name.toLowerCase().includes(search.toLowerCase()) || (s.desc && s.desc.toLowerCase().includes(search.toLowerCase())));
   const levels = [...new Set(filteredSpells.map(s => s.level))].sort();
 
@@ -371,6 +385,7 @@ const TabSpells = ({ ch, spells, setSpells }) => {
             <div key={lvl} style={{ marginBottom: 20 }}>
               <h4 style={{ color: "var(--c-accent)", borderBottom: "1px solid var(--c-edge)", paddingBottom: 4, marginBottom: 10 }}>
                 {lvl === 0 ? "Truques (Nível 0)" : `Nível ${lvl}`}
+                {spells.system === "points" && lvl > 0 && <span style={{fontSize: 10, color: "var(--c-ink-dd)", marginLeft: 8}}>(Custo: {SPELL_POINT_COSTS[lvl]} pts)</span>}
               </h4>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 10 }}>
                 {filteredSpells.filter(s => s.level === lvl).map((s, idx) => {
@@ -386,6 +401,12 @@ const TabSpells = ({ ch, spells, setSpells }) => {
                         {s.dmg && ` | Efeito: ${s.dmg} ${s.type}`}
                       </div>
                       <div className="fdesc">{s.desc}</div>
+                      {spells.system === "points" && lvl > 0 && (
+                        <button style={{ marginTop: 8, width: "100%", padding: 6, background: "rgba(0,0,0,0.3)", border: "1px solid var(--c-accent)", color: "var(--c-accent-bright)", borderRadius: 4, fontFamily: "var(--font-pixel)", fontSize: 8, cursor: "pointer" }}
+                                onClick={() => castWithPoints(lvl)}>
+                          CONJURAR (-{SPELL_POINT_COSTS[lvl]} pts)
+                        </button>
+                      )}
                     </div>
                   );
                 })}
@@ -414,7 +435,35 @@ const TabSpells = ({ ch, spells, setSpells }) => {
           </div>
         </Panel>
 
-        {Object.keys(spells.slots || {}).length > 0 && (
+        {spells.system === "points" && spells.points && (
+          <Panel>
+            <div className="section-head">Pontos de Magia</div>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+                <span style={{ fontSize: 32, fontFamily: "var(--font-mono)", color: "var(--c-accent-bright)", textShadow: "0 2px 10px rgba(167, 189, 64, 0.4)" }}>
+                  {spells.points.current}
+                </span>
+                <span style={{ fontSize: 16, color: "var(--c-ink-d)", fontFamily: "var(--font-mono)" }}>
+                  / {spells.points.max}
+                </span>
+              </div>
+              
+              <div style={{ display: "flex", gap: 8 }}>
+                <button className="res-pip on" style={{ width: 30, height: 30, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, borderRadius: "50%" }} onClick={() => setSpells(st => ({...st, points: {...st.points, current: Math.max(0, st.points.current - 1)}}))}>-</button>
+                <button className="res-pip on" style={{ width: 30, height: 30, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, borderRadius: "50%" }} onClick={() => setSpells(st => ({...st, points: {...st.points, current: Math.min(st.points.max, st.points.current + 1)}}))}>+</button>
+              </div>
+              
+              <div style={{ width: "100%", marginTop: 12, borderTop: "1px dashed var(--c-edge-2)", paddingTop: 12 }}>
+                <div style={{ fontSize: 10, color: "var(--c-accent)", marginBottom: 8, fontFamily: "var(--font-pixel)", textAlign: "center" }}>CUSTOS (Nível : Pontos)</div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, justifyContent: "center", fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--c-ink-d)" }}>
+                  <span>1º:2</span><span>2º:3</span><span>3º:5</span><span>4º:6</span><span>5º:7</span><span>6º:9</span><span>7º:10</span><span>8º:11</span><span>9º:13</span>
+                </div>
+              </div>
+            </div>
+          </Panel>
+        )}
+
+        {spells.system !== "points" && Object.keys(spells.slots || {}).length > 0 && (
           <Panel>
             <div className="section-head">Espaços de Magia (Slots)</div>
             <div className="resources">

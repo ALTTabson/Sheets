@@ -140,11 +140,18 @@ const Sheet = ({ initialData, onBack }) => {
       for (const [k, v] of Object.entries(r)) out[k] = { ...v, current: v.max };
       return out;
     });
-    if (spells && spells.slots) {
+    if (spells) {
       setSpells(st => {
-        const newSlots = {};
-        for (const [lvl, slot] of Object.entries(st.slots)) newSlots[lvl] = { ...slot, current: slot.max };
-        return { ...st, slots: newSlots };
+        const next = { ...st };
+        if (next.system === "points" && next.points) {
+          next.points.current = next.points.max;
+        }
+        if (next.slots) {
+          const newSlots = {};
+          for (const [lvl, slot] of Object.entries(next.slots)) newSlots[lvl] = { ...slot, current: slot.max };
+          next.slots = newSlots;
+        }
+        return next;
       });
     }
     setHitDice(hd => {

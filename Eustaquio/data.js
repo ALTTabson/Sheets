@@ -241,6 +241,8 @@ const DATABASE = [
       personality: ""
     },
     spells: {
+      system: "points",
+      points: { max: 44, current: 44 },
       castingAbility: "INT",
       slots: {
         1: { max: 4, current: 4 },

@@ -1,0 +1,33 @@
+export const pt = {
+  code: "pt",
+  abilities: { STR: "FOR", DEX: "DES", CON: "CON", INT: "INT", WIS: "SAB", CHA: "CAR" },
+  abilitiesLong: { STR: "Força", DEX: "Destreza", CON: "Constituição", INT: "Inteligência", WIS: "Sabedoria", CHA: "Carisma" },
+  skills: {
+    acrobatics: "Acrobacia", animalHandling: "Lidar com Animais", arcana: "Arcanismo",
+    athletics: "Atletismo", deception: "Enganação", history: "História",
+    insight: "Intuição", intimidation: "Intimidação", investigation: "Investigação",
+    medicine: "Medicina", nature: "Natureza", perception: "Percepção",
+    performance: "Atuação", persuasion: "Persuasão", religion: "Religião",
+    sleightOfHand: "Prestidigitação", stealth: "Furtividade", survival: "Sobrevivência",
+  },
+  ui: {
+    hp: "PV", ac: "CA", initiative: "Iniciativa", speed: "Deslocamento",
+    prof: "Prof", saves: "Resistências", skills: "Perícias",
+    actions: "Ações", bonusActions: "Ações Bônus", reactions: "Reações", passives: "Passivas",
+    shortRest: "Descanso Curto", longRest: "Descanso Longo",
+    rage: "Fúria", reckless: "Imprudente", bless: "Abençoado", haste: "Acelerado",
+    inspiration: "Inspiração", concentration: "Concentração", exhaustion: "Exaustão",
+    roll: "Rolar", inventory: "Inventário", spells: "Magias", features: "Características", notes: "Notas",
+    currency: "Moedas", encumbrance: "Carga", toHit: "Atq", damage: "Dano",
+    deathSaves: "Testes de Morte", tempHP: "PV Temp.", passivePerception: "Percepção Passiva",
+    advantage: "Vantagem", disadvantage: "Desvantagem",
+    resistances: "Resistências", immunities: "Imunidades", vulnerabilities: "Vulnerabilidades",
+  },
+  log: {
+    roll: (label, total, detail) => `🎲 **${label}**: ${total} _(${detail})_`,
+    damage: (amount) => `💥 Dano: ${amount}`,
+    heal:   (amount) => `💚 Cura: ${amount}`,
+    status: (name, on) => `${on ? "🟢" : "⚪"} ${name} ${on ? "ativado" : "desativado"}`,
+    rest:   (kind) => kind === "long" ? "🌙 Descanso Longo" : "🔥 Descanso Curto",
+  },
+};

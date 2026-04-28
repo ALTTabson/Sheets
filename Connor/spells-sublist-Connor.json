@@ -1,0 +1,135 @@
+{
+	"fileType": "spells-sublist",
+	"siteVersion": "2.27.0",
+	"name": "Connor",
+	"saveId": "33f87258-206e-4dce-a750-582f45bed210",
+	"items": [
+		{
+			"h": "shape%20water_xge"
+		},
+		{
+			"h": "mind%20sliver_tce"
+		},
+		{
+			"h": "toll%20the%20dead_xge"
+		},
+		{
+			"h": "fire%20bolt_phb"
+		},
+		{
+			"h": "mage%20hand_phb"
+		},
+		{
+			"h": "message_phb"
+		},
+		{
+			"h": "silvery%20barbs_scc"
+		},
+		{
+			"h": "shield_phb"
+		},
+		{
+			"h": "sleep_phb"
+		},
+		{
+			"h": "magic%20missile_phb"
+		},
+		{
+			"h": "mage%20armor_phb"
+		},
+		{
+			"h": "find%20familiar_phb"
+		},
+		{
+			"h": "comprehend%20languages_phb"
+		},
+		{
+			"h": "absorb%20elements_xge"
+		},
+		{
+			"h": "charm%20person_phb"
+		},
+		{
+			"h": "feather%20fall_phb"
+		},
+		{
+			"h": "misty%20step_phb"
+		},
+		{
+			"h": "scorching%20ray_phb"
+		},
+		{
+			"h": "detect%20thoughts_phb"
+		},
+		{
+			"h": "darkness_phb"
+		},
+		{
+			"h": "fear_phb"
+		},
+		{
+			"h": "web_phb"
+		},
+		{
+			"h": "shatter_phb"
+		},
+		{
+			"h": "fireball_phb"
+		},
+		{
+			"h": "invisibility_phb"
+		},
+		{
+			"h": "water%20breathing_phb"
+		},
+		{
+			"h": "dispel%20magic_phb"
+		},
+		{
+			"h": "hypnotic%20pattern_phb"
+		},
+		{
+			"h": "haste_phb"
+		},
+		{
+			"h": "identify_phb"
+		},
+		{
+			"h": "jim's%20magic%20missile_ai"
+		},
+		{
+			"h": "enhance%20ability_phb"
+		},
+		{
+			"h": "knock_phb"
+		},
+		{
+			"h": "sending_phb"
+		},
+		{
+			"h": "counterspell_phb"
+		},
+		{
+			"h": "polymorph_phb"
+		},
+		{
+			"h": "divination_phb"
+		},
+		{
+			"h": "wall%20of%20fire_phb"
+		},
+		{
+			"h": "stone%20shape_phb"
+		},
+		{
+			"h": "freedom%20of%20movement_phb"
+		}
+	],
+	"sources": [
+		"XGE",
+		"TCE",
+		"PHB",
+		"SCC",
+		"AI"
+	]
+}

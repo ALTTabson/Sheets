@@ -1422,3 +1422,438 @@ input { font: inherit; }
   border-color: var(--c-accent);
   color: var(--c-accent-bright);
 }
+
+/* ── Character Editor ───────────────────────────────── */
+.editor-root {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: var(--c-bg);
+  overflow: hidden;
+  color: var(--c-ink);
+  font-family: var(--font-body);
+}
+
+.editor-sidebar {
+  width: 35%;
+  min-width: 350px;
+  max-width: 450px;
+  background: var(--c-panel);
+  border-right: 1px solid var(--c-edge);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  overflow-y: auto;
+  z-index: 2;
+}
+
+.editor-section {
+  margin-bottom: 24px;
+}
+
+.editor-header {
+  border-bottom: 1px dashed var(--c-edge-2);
+  padding-bottom: 16px;
+}
+
+.edit-name {
+  background: transparent;
+  border: none;
+  color: var(--c-accent-bright);
+  font-family: var(--font-pixel);
+  font-size: 20px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.edit-name:focus {
+  outline: none;
+  border-bottom: 1px solid var(--c-accent);
+}
+
+.edit-sub {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--c-ink-dd);
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--c-accent);
+  margin: 0 0 16px 0;
+  letter-spacing: 0.1em;
+}
+
+.editor-abilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.editor-stat-block {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--c-edge-2);
+  border-radius: 4px;
+  padding: 12px 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editor-stat-block label {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--c-ink-d);
+  margin-bottom: 6px;
+}
+
+.editor-stat-block input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.editor-stat-block .mod {
+  font-size: 14px;
+  color: var(--c-accent-bright);
+  font-weight: bold;
+}
+
+.editor-current-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.current-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+  padding: 8px 12px;
+  border-radius: 4px;
+  border-left: 2px solid var(--c-accent);
+}
+
+.current-item button {
+  color: var(--c-red);
+  font-size: 16px;
+  padding: 4px;
+}
+
+.editor-footer {
+  margin-top: auto;
+  display: flex;
+  gap: 12px;
+  padding-top: 24px;
+}
+
+.editor-footer button {
+  flex: 1;
+  padding: 12px;
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.back-btn {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid var(--c-edge);
+  color: var(--c-ink-d);
+}
+
+.back-btn:hover {
+  background: rgba(var(--c-bg-rgb), 0.8);
+  color: #fff;
+  border-color: var(--c-red);
+}
+
+.save-btn {
+  background: var(--c-accent);
+  color: #000;
+  border: 1px solid var(--c-accent-bright);
+}
+
+.save-btn:hover {
+  background: var(--c-accent-bright);
+  box-shadow: 0 0 10px rgba(var(--c-accent-rgb), 0.5);
+}
+
+.editor-main {
+  flex: 1;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.editor-nav {
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--c-edge);
+  background: rgba(15, 26, 6, 0.95);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.editor-tabs {
+  display: flex;
+  gap: 16px;
+}
+
+.editor-tabs button {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--c-ink-dd);
+  padding-bottom: 8px;
+  border-bottom: 2px solid transparent;
+}
+
+.editor-tabs button.active, .editor-tabs button:hover {
+  color: var(--c-accent-bright);
+  border-bottom-color: var(--c-accent);
+}
+
+.editor-filters {
+  display: flex;
+  gap: 16px;
+}
+
+.editor-filters input {
+  flex: 1;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid var(--c-edge);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+}
+
+.editor-filters select {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid var(--c-edge);
+  color: var(--c-ink-d);
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+}
+
+.editor-grid {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  align-content: start;
+}
+
+.editor-card {
+  background: rgba(15, 26, 6, 0.6);
+  border: 1px solid var(--c-edge-2);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.editor-card:hover {
+  border-color: var(--c-accent);
+  background: rgba(15, 26, 6, 0.9);
+  transform: translateY(-2px);
+}
+
+.editor-card.expanded {
+  grid-column: 1 / -1;
+}
+
+.card-header {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-header .name {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--c-ink);
+  flex: 1;
+}
+
+.edition-tag {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+.edition-tag.legacy {
+  background: rgba(var(--c-bg-rgb), 0.8);
+  border: 1px solid var(--c-edge-2);
+  color: var(--c-ink-d);
+}
+
+.edition-tag.revised {
+  background: rgba(var(--c-accent-rgb), 0.2);
+  border: 1px solid var(--c-accent);
+  color: var(--c-accent-bright);
+}
+
+.add-btn {
+  background: var(--c-accent);
+  color: #000;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  transition: all 0.2s;
+}
+
+.add-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(var(--c-accent-rgb), 0.6);
+}
+
+.card-body {
+  padding: 0 16px 16px;
+  border-top: 1px dashed var(--c-edge-2);
+  margin-top: 8px;
+  padding-top: 16px;
+}
+
+.card-body .meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--c-accent);
+  margin-bottom: 12px;
+}
+
+.card-body .desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--c-ink-d);
+}
+
+/* ── Tile Transition ───────────────────────────────── */
+.tile-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  pointer-events: none;
+}
+
+.tile {
+  background: #000;
+  animation: tileFlip 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes tileFlip {
+  0% { opacity: 0; transform: scale(0.5) rotateX(-90deg); }
+  20% { opacity: 1; transform: scale(1) rotateX(0deg); }
+  80% { opacity: 1; transform: scale(1) rotateX(0deg); }
+  100% { opacity: 0; transform: scale(0.5) rotateX(90deg); }
+}
+
+/* ── TabCompendium ───────────────────────────────── */
+.tab-compendium {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.comp-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.comp-tabs {
+  display: flex;
+  gap: 8px;
+}
+.comp-tabs button {
+  padding: 8px 12px;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--c-edge-2);
+  color: var(--c-ink-dd);
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  border-radius: 4px;
+}
+.comp-tabs button.active {
+  background: var(--c-panel);
+  border-color: var(--c-accent);
+  color: var(--c-accent-bright);
+}
+.comp-filters {
+  display: flex;
+  gap: 12px;
+}
+.comp-filters input {
+  flex: 1;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid var(--c-edge);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+.comp-filters select {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid var(--c-edge);
+  color: var(--c-ink-d);
+  padding: 8px;
+  border-radius: 4px;
+}
+.comp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.comp-row {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--c-edge-2);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.comp-row:hover { background: rgba(0,0,0,0.4); border-color: var(--c-edge); }
+.comp-row-head {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.comp-row-head .name {
+  flex: 1;
+  font-weight: bold;
+}
+.comp-row-head .meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--c-ink-dd);
+}
+.comp-row-body {
+  padding: 0 12px 12px;
+  border-top: 1px dashed var(--c-edge-2);
+  margin-top: 4px;
+  padding-top: 12px;
+  font-size: 13px;
+  color: var(--c-ink-d);
+}

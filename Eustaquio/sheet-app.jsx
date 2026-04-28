@@ -9,13 +9,13 @@ const BG_IMAGES = {
 };
 
 const PALETTES = {
-  forest:   { bg: "#0d1604", bgRgb: "13, 22, 4",  panelRgb: "29, 51, 9",  panel: "rgba(15, 26, 6, 0.82)",  edge: "#6A804F", edge2: "rgba(106, 128, 79, 0.45)", accent: "#A7BD40", accentRgb: "167, 189, 64", bright: "#C7DA91", blue: "#5C95E0", inkD: "#c7daa1", inkDd: "#8a9a6a", red: "#d97a5a", green: "#A7BD40", gold: "#e0c068" },
-  midnight: { bg: "#070a14", bgRgb: "7, 10, 20",  panelRgb: "18, 25, 45", panel: "rgba(12, 18, 36, 0.85)", edge: "#3a4a78", edge2: "rgba(58, 74, 120, 0.45)",  accent: "#5C95E0", accentRgb: "92, 149, 224",  bright: "#9ec0ee", blue: "#5C95E0", inkD: "#b0cfff", inkDd: "#7a90b8", red: "#e07070", green: "#70b8a0", gold: "#c8a840" },
-  amber:    { bg: "#1a0f04", bgRgb: "26, 15, 4",  panelRgb: "45, 30, 15", panel: "rgba(36, 22, 8, 0.82)",  edge: "#7a5530", edge2: "rgba(122, 85, 48, 0.45)", accent: "#e0a050", accentRgb: "224, 160, 80",  bright: "#f5c878", blue: "#5C95E0", inkD: "#f5d8a0", inkDd: "#b89a6a", red: "#d97a5a", green: "#b0c060", gold: "#e0b040" },
-  pink:     { bg: "#1a0b12", bgRgb: "26, 11, 18", panelRgb: "45, 20, 30", panel: "rgba(36, 16, 24, 0.82)", edge: "#804f66", edge2: "rgba(128, 79, 102, 0.45)", accent: "#d6659c", accentRgb: "214, 101, 156", bright: "#f291c1", blue: "#5C95E0", inkD: "#f2b6d3", inkDd: "#b87a98", red: "#e06080", green: "#80c090", gold: "#d4b050" },
-  purple:   { bg: "#0e0914", bgRgb: "14, 9, 20",  panelRgb: "25, 15, 40", panel: "rgba(20, 12, 32, 0.82)", edge: "#584078", edge2: "rgba(88, 64, 120, 0.45)",  accent: "#946cd4", accentRgb: "148, 108, 212", bright: "#bca4ed", blue: "#5C95E0", inkD: "#d4c4f5", inkDd: "#9a8abd", red: "#b070d0", green: "#80b8a0", gold: "#c8a840" },
-  red:      { bg: "#1a0505", bgRgb: "26, 5, 5",   panelRgb: "45, 15, 15", panel: "rgba(36, 10, 10, 0.82)", edge: "#803030", edge2: "rgba(128, 48, 48, 0.45)",  accent: "#d44444", accentRgb: "212, 68, 68",   bright: "#f27979", blue: "#5C95E0", inkD: "#f2a0a0", inkDd: "#b86a6a", red: "#e05050", green: "#80c090", gold: "#d4b050" },
-  yellow:   { bg: "#171404", bgRgb: "23, 20, 4",  panelRgb: "40, 35, 10", panel: "rgba(32, 28, 8, 0.82)",  edge: "#807020", edge2: "rgba(128, 112, 32, 0.45)", accent: "#d4bc35", accentRgb: "212, 188, 53", bright: "#f2dc79", blue: "#5C95E0", inkD: "#f2e6a0", inkDd: "#b8a86a", red: "#d08030", green: "#a0c050", gold: "#e0c040" }
+  forest: { bg: "#0d1604", bgRgb: "13, 22, 4", panelRgb: "29, 51, 9", panel: "rgba(15, 26, 6, 0.82)", edge: "#6A804F", edge2: "rgba(106, 128, 79, 0.45)", accent: "#A7BD40", accentRgb: "167, 189, 64", bright: "#C7DA91", blue: "#5C95E0", inkD: "#c7daa1", inkDd: "#8a9a6a", red: "#d97a5a", green: "#A7BD40", gold: "#e0c068" },
+  midnight: { bg: "#070a14", bgRgb: "7, 10, 20", panelRgb: "18, 25, 45", panel: "rgba(12, 18, 36, 0.85)", edge: "#3a4a78", edge2: "rgba(58, 74, 120, 0.45)", accent: "#5C95E0", accentRgb: "92, 149, 224", bright: "#9ec0ee", blue: "#5C95E0", inkD: "#b0cfff", inkDd: "#7a90b8", red: "#e07070", green: "#70b8a0", gold: "#c8a840" },
+  amber: { bg: "#1a0f04", bgRgb: "26, 15, 4", panelRgb: "45, 30, 15", panel: "rgba(36, 22, 8, 0.82)", edge: "#7a5530", edge2: "rgba(122, 85, 48, 0.45)", accent: "#e0a050", accentRgb: "224, 160, 80", bright: "#f5c878", blue: "#5C95E0", inkD: "#f5d8a0", inkDd: "#b89a6a", red: "#d97a5a", green: "#b0c060", gold: "#e0b040" },
+  pink: { bg: "#1a0b12", bgRgb: "26, 11, 18", panelRgb: "45, 20, 30", panel: "rgba(36, 16, 24, 0.82)", edge: "#804f66", edge2: "rgba(128, 79, 102, 0.45)", accent: "#d6659c", accentRgb: "214, 101, 156", bright: "#f291c1", blue: "#5C95E0", inkD: "#f2b6d3", inkDd: "#b87a98", red: "#e06080", green: "#80c090", gold: "#d4b050" },
+  purple: { bg: "#0e0914", bgRgb: "14, 9, 20", panelRgb: "25, 15, 40", panel: "rgba(20, 12, 32, 0.82)", edge: "#584078", edge2: "rgba(88, 64, 120, 0.45)", accent: "#946cd4", accentRgb: "148, 108, 212", bright: "#bca4ed", blue: "#5C95E0", inkD: "#d4c4f5", inkDd: "#9a8abd", red: "#b070d0", green: "#80b8a0", gold: "#c8a840" },
+  red: { bg: "#1a0505", bgRgb: "26, 5, 5", panelRgb: "45, 15, 15", panel: "rgba(36, 10, 10, 0.82)", edge: "#803030", edge2: "rgba(128, 48, 48, 0.45)", accent: "#d44444", accentRgb: "212, 68, 68", bright: "#f27979", blue: "#5C95E0", inkD: "#f2a0a0", inkDd: "#b86a6a", red: "#e05050", green: "#80c090", gold: "#d4b050" },
+  yellow: { bg: "#171404", bgRgb: "23, 20, 4", panelRgb: "40, 35, 10", panel: "rgba(32, 28, 8, 0.82)", edge: "#807020", edge2: "rgba(128, 112, 32, 0.45)", accent: "#d4bc35", accentRgb: "212, 188, 53", bright: "#f2dc79", blue: "#5C95E0", inkD: "#f2e6a0", inkDd: "#b8a86a", red: "#d08030", green: "#a0c050", gold: "#e0c040" }
 };
 
 const HEART_COLORS = {
@@ -60,13 +60,13 @@ const Sheet = ({ initialData, onBack }) => {
     });
     return dice;
   });
-  
+
   const [diceResult, setDiceResult] = useState(null);
   const [logEntries, setLogEntries] = useState([]);
   const [customBg, setCustomBg] = useState(null);
   const [showConditions, setShowConditions] = useState(false);
   const [showCompendium, setShowCompendium] = useState(false);
-  const { vfx, flash, triggerRoll, clearVfx } = window.useDiceVFX ? window.useDiceVFX() : { vfx: null, flash: false, triggerRoll: () => {}, clearVfx: () => {} };
+  const { vfx, flash, triggerRoll, clearVfx } = window.useDiceVFX ? window.useDiceVFX() : { vfx: null, flash: false, triggerRoll: () => { }, clearVfx: () => { } };
 
   const pushLog = (entry) => setLogEntries(L => [
     { ...entry, t: Date.now(), id: Math.random().toString(36).slice(2) },
@@ -98,9 +98,9 @@ const Sheet = ({ initialData, onBack }) => {
     r.style.setProperty("--c-blue", p.blue);
     r.style.setProperty("--c-ink-d", p.inkD);
     r.style.setProperty("--c-ink-dd", p.inkDd);
-    r.style.setProperty("--c-red",   p.red);
+    r.style.setProperty("--c-red", p.red);
     r.style.setProperty("--c-green", p.green);
-    r.style.setProperty("--c-gold",  p.gold);
+    r.style.setProperty("--c-gold", p.gold);
 
     // apply heart color
     r.style.setProperty("--c-heart", HEART_COLORS[tweaks.heartColor] || HEART_COLORS.red);
@@ -132,7 +132,7 @@ const Sheet = ({ initialData, onBack }) => {
       setShowRestModal(true);
       return;
     }
-    
+
     // Long Rest
     setCh(c => ({ ...c, hp: { ...c.hp, current: c.hp.max } }));
     setResources(r => {
@@ -187,9 +187,9 @@ const Sheet = ({ initialData, onBack }) => {
 
   return (
     <>
-      <div className="bg-layer" style={{ backgroundImage: `url(${tweaks.background === "custom" && customBg ? customBg : BG_IMAGES[tweaks.background] || BG_IMAGES.monastery})` }}/>
-      <div className="bg-overlay"/>
-      <div className="bg-tint"/>
+      <div className="bg-layer" style={{ backgroundImage: `url(${tweaks.background === "custom" && customBg ? customBg : BG_IMAGES[tweaks.background] || BG_IMAGES.monastery})` }} />
+      <div className="bg-overlay" />
+      <div className="bg-tint" />
 
       <div className="app">
         <div style={{ marginBottom: 14 }}>
@@ -200,15 +200,15 @@ const Sheet = ({ initialData, onBack }) => {
 
         <TopBar ch={ch} onRoll={onRoll} status={status} setStatus={setStatus}
           onRest={onRest} lighting={tweaks.lighting}
-          setLighting={(v) => setTweak(t => ({...t, lighting: v}))}
+          setLighting={(v) => setTweak(t => ({ ...t, lighting: v }))}
           palette={tweaks.palette}
-          setPalette={(v) => setTweak(t => ({...t, palette: v}))}
+          setPalette={(v) => setTweak(t => ({ ...t, palette: v }))}
           heartColor={tweaks.heartColor || "red"}
-          setHeartColor={(v) => setTweak(t => ({...t, heartColor: v}))}
+          setHeartColor={(v) => setTweak(t => ({ ...t, heartColor: v }))}
           background={tweaks.background}
-          setBackground={(v) => setTweak(t => ({...t, background: v}))}
+          setBackground={(v) => setTweak(t => ({ ...t, background: v }))}
           onBgUpload={onBgUpload}
-          hasCustomBg={!!customBg}/>
+          hasCustomBg={!!customBg} />
 
         {/* B-Plan quick-access buttons */}
         <div style={{ display: "flex", gap: 6, padding: "4px 0 8px", justifyContent: "flex-end" }}>
@@ -217,7 +217,7 @@ const Sheet = ({ initialData, onBack }) => {
           ))}
           <button className="rest-btn" style={{ marginLeft: 8 }} onClick={() => setShowConditions(true)}
             title="Gerenciar Condições">
-            ☠ Condições {(status.conditions||[]).length > 0 && `(${status.conditions.length})`}
+            ☠ Condições {(status.conditions || []).length > 0 && `(${status.conditions.length})`}
           </button>
           <button className="rest-btn" onClick={() => setShowCompendium(c => !c)}
             title="Abrir Compêndio">
@@ -226,11 +226,11 @@ const Sheet = ({ initialData, onBack }) => {
         </div>
 
         {showRestModal && (
-          <ShortRestModal 
-            ch={ch} 
-            hitDice={hitDice} 
-            setHitDice={setHitDice} 
-            onHeal={onHeal} 
+          <ShortRestModal
+            ch={ch}
+            hitDice={hitDice}
+            setHitDice={setHitDice}
+            onHeal={onHeal}
             onClose={() => setShowRestModal(false)}
             onFinalize={finalizeShortRest}
           />
@@ -255,38 +255,38 @@ const Sheet = ({ initialData, onBack }) => {
             onHeal={onHeal} onDamage={onDamage}
             econ={econ} setEcon={setEcon}
             status={status} setStatus={setStatus}
-            resources={resources} setResources={setResources}/>
+            resources={resources} setResources={setResources} />
         )}
         {tab === "combat" && (
           <TabCombat ch={ch} onRoll={onRoll}
             econ={econ} setEcon={setEcon}
             status={status} setStatus={setStatus}
-            resources={resources} setResources={setResources}/>
+            resources={resources} setResources={setResources} />
         )}
-        {tab === "skills" && <TabSkills ch={ch} onRoll={onRoll}/>}
-        {tab === "inventory" && <TabInventory ch={ch} inventory={inventory} setInventory={setInventory}/>}
-        {tab === "persona" && <TabPersona ch={ch}/>}
-        {tab === "spells" && <TabSpells ch={ch} spells={spells} setSpells={setSpells}/>}
+        {tab === "skills" && <TabSkills ch={ch} onRoll={onRoll} />}
+        {tab === "inventory" && <TabInventory ch={ch} inventory={inventory} setInventory={setInventory} />}
+        {tab === "persona" && <TabPersona ch={ch} />}
+        {tab === "spells" && <TabSpells ch={ch} spells={spells} setSpells={setSpells} />}
       </div>
 
-      <DiceResult result={diceResult} onClose={() => setDiceResult(null)}/>
-      <RollLog entries={logEntries} onClear={() => setLogEntries([])}/>
+      <DiceResult result={diceResult} onClose={() => setDiceResult(null)} />
+      <RollLog entries={logEntries} onClear={() => setLogEntries([])} />
 
       <TweaksPanel title="Tweaks">
         <TweakSection title="Estilo">
           <TweakRadio label="Ornamento" value={tweaks.ornament}
-            onChange={(v) => setTweak(t => ({...t, ornament: v}))}
+            onChange={(v) => setTweak(t => ({ ...t, ornament: v }))}
             options={[
               { value: "minimal", label: "Mínimo" },
               { value: "standard", label: "Padrão" }
-            ]}/>
+            ]} />
           <TweakSelect label="Classe (Tinta)" value={tweaks.characterTint}
-            onChange={(v) => setTweak(t => ({...t, characterTint: v}))}
+            onChange={(v) => setTweak(t => ({ ...t, characterTint: v }))}
             options={[
               { value: "barbarian", label: "Bárbaro" },
               { value: "wizard", label: "Mago" },
               { value: "rogue", label: "Ladino" }
-            ]}/>
+            ]} />
         </TweakSection>
       </TweaksPanel>
 
@@ -319,12 +319,13 @@ const Sheet = ({ initialData, onBack }) => {
 };
 
 /* ============ Character Selector ============ */
-const CharacterSelector = ({ onSelect, onDMMode }) => {
+/* ============ Character Selector ============ */
+const CharacterSelector = ({ onSelect, onEdit, onDMMode }) => {
   return (
-    <div style={{ 
-      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', 
-      background: 'url(https://images.unsplash.com/photo-1548013146-72479768bada?w=2400&q=85) center/cover no-repeat', 
-      color: '#fff', fontFamily: 'var(--font-body)', position: 'relative' 
+    <div style={{
+      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh',
+      background: 'url(https://images.unsplash.com/photo-1548013146-72479768bada?w=2400&q=85) center/cover no-repeat',
+      color: '#fff', fontFamily: 'var(--font-body)', position: 'relative'
     }}>
       <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(4px)' }}></div>
       <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: 1000, padding: 40 }}>
@@ -332,10 +333,10 @@ const CharacterSelector = ({ onSelect, onDMMode }) => {
           <h1 style={{ fontFamily: 'var(--font-pixel)', color: 'var(--c-accent-bright)', fontSize: 32, textShadow: '0 4px 10px rgba(0,0,0,0.8)', letterSpacing: '0.1em' }}>D&D SHEET ENGINE</h1>
           <div style={{ fontFamily: 'var(--font-mono)', color: 'var(--c-ink-d)', fontSize: 14, marginTop: 10, letterSpacing: '0.2em' }}>DATA CENTER</div>
         </div>
-        
+
         <div style={{ display: 'flex', gap: 30, flexWrap: 'wrap', justifyContent: 'center' }}>
           {DATABASE.map(ch => (
-            <div key={ch.id} onClick={() => onSelect(ch)} style={{ width: 220, cursor: 'pointer', background: 'rgba(15, 26, 6, 0.85)', border: '1px solid var(--c-edge)', padding: '30px 20px', textAlign: 'center', transition: 'all 0.2s ease', position: 'relative', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }} className="char-card">
+            <div key={ch.id} style={{ width: 220, background: 'rgba(15, 26, 6, 0.85)', border: '1px solid var(--c-edge)', padding: '30px 20px', textAlign: 'center', transition: 'all 0.2s ease', position: 'relative', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }} className="char-card">
               <span className="corner-tr"></span>
               <span className="corner-bl"></span>
               <div style={{ width: 90, height: 90, background: 'linear-gradient(135deg, var(--c-edge) 0%, #000 100%)', borderRadius: '50%', margin: '0 auto 15px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, fontFamily: 'var(--font-pixel)', border: '2px solid var(--c-accent)' }}>
@@ -343,7 +344,11 @@ const CharacterSelector = ({ onSelect, onDMMode }) => {
               </div>
               <h3 style={{ margin: '0 0 8px 0', fontSize: 16, fontFamily: 'var(--font-pixel)', lineHeight: 1.4 }}>{ch.meta.name}</h3>
               <div style={{ fontSize: 12, color: 'var(--c-ink-d)', marginBottom: 15, fontFamily: 'var(--font-mono)' }}>{ch.meta.classes.map(c => c.name).join(' / ')} nv {ch.meta.level}</div>
-              <div style={{ fontSize: 10, background: 'rgba(0,0,0,0.5)', padding: '4px 8px', borderRadius: 4, display: 'inline-block', border: '1px solid var(--c-edge-2)' }}>{ch.meta.race}</div>
+              
+              <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
+                <button className="sel-btn play" onClick={() => onSelect(ch)}>JOGAR</button>
+                <button className="sel-btn edit" onClick={() => onEdit(ch)}>EDITAR</button>
+              </div>
             </div>
           ))}
 
@@ -362,7 +367,8 @@ const CharacterSelector = ({ onSelect, onDMMode }) => {
           ⚗ MODO MESTRE
         </button>
       </div>
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .char-card:hover { border-color: var(--c-accent-bright); transform: translateY(-5px); background: rgba(29, 51, 9, 0.95) !important; }
         .char-card.new-char:hover { background: rgba(167, 189, 64, 0.1) !important; color: var(--c-accent-bright); }
         .char-card.new-char:hover div { color: var(--c-accent-bright) !important; }
@@ -373,17 +379,52 @@ const CharacterSelector = ({ onSelect, onDMMode }) => {
 
 const App = () => {
   const [activeCharacter, setActiveCharacter] = useState(null);
+  const [editorTarget, setEditorTarget] = useState(null);
   const [dmMode, setDmMode] = useState(false);
+  const [tiles, setTiles] = useState(false);
+
+  const triggerTransition = (fn) => {
+    setTiles(true);
+    setTimeout(() => {
+      fn();
+      setTimeout(() => setTiles(false), 400);
+    }, 400);
+  };
+
+  const handleSelect = (ch) => triggerTransition(() => setActiveCharacter(ch));
+  const handleEdit = (ch) => triggerTransition(() => setEditorTarget(ch));
+  const handleSave = (updated) => triggerTransition(() => {
+    setActiveCharacter(updated);
+    setEditorTarget(null);
+  });
+  const handleBack = () => triggerTransition(() => {
+    setActiveCharacter(null);
+    setEditorTarget(null);
+  });
 
   if (dmMode) {
     return <DMScreen onBack={() => setDmMode(false)} />;
   }
 
-  if (!activeCharacter) {
-    return <CharacterSelector onSelect={setActiveCharacter} onDMMode={() => setDmMode(true)} />;
-  }
+  return (
+    <>
+      {editorTarget ? (
+        <CharacterEditor ch={editorTarget} onSave={handleSave} onBack={handleBack} />
+      ) : activeCharacter ? (
+        <Sheet key={activeCharacter.id} initialData={activeCharacter} onBack={handleBack} />
+      ) : (
+        <CharacterSelector onSelect={handleSelect} onEdit={handleEdit} onDMMode={() => setDmMode(true)} />
+      )}
 
-  return <Sheet key={activeCharacter.id} initialData={activeCharacter} onBack={() => setActiveCharacter(null)} />;
+      {tiles && (
+        <div className="tile-transition">
+          {Array.from({ length: 100 }).map((_, i) => (
+            <div key={i} className="tile" style={{ animationDelay: `${(i % 10) * 40 + Math.floor(i / 10) * 40}ms` }} />
+          ))}
+        </div>
+      )}
+    </>
+  );
 };
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);

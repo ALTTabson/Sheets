@@ -37,7 +37,7 @@ const TWEAKS_DEFAULTS = {
 };
 
 /* ============ Character Sheet Engine ============ */
-const Sheet = ({ initialData, onBack }) => {
+const Sheet = ({ initialData, onBack, onEdit }) => {
   const [tweaks, setTweak] = useState({ ...TWEAKS_DEFAULTS, ...initialData.tweaks });
   const [tab, setTab] = useState("overview");
   const [ch, setCh] = useState(initialData);
@@ -199,10 +199,15 @@ const Sheet = ({ initialData, onBack }) => {
       <div className="bg-tint" />
 
       <div className="app">
-        <div style={{ marginBottom: 14 }}>
+        <div style={{ marginBottom: 14, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <button className="back-btn" onClick={onBack} style={{ background: 'var(--c-panel)', border: '1px solid var(--c-edge)', color: 'var(--c-ink)', padding: '6px 10px', cursor: 'pointer', fontFamily: 'var(--font-pixel)', fontSize: 10, display: 'inline-flex', alignItems: 'center', gap: 6 }}>
             <Icon name="chevron-left" size={10} /> Voltar
           </button>
+          {onEdit && (
+            <button className="edit-btn" onClick={onEdit} style={{ background: 'var(--c-panel)', border: '1px solid var(--c-edge)', color: 'var(--c-accent-bright)', padding: '6px 10px', cursor: 'pointer', fontFamily: 'var(--font-pixel)', fontSize: 10, display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+              ✎ Editar Ficha
+            </button>
+          )}
         </div>
 
         <TopBar ch={ch} onRoll={onRoll} status={status} setStatus={setStatus}
@@ -329,7 +334,7 @@ const Sheet = ({ initialData, onBack }) => {
 
 /* ============ Character Selector ============ */
 /* ============ Character Selector ============ */
-const CharacterSelector = ({ onSelect, onEdit, onDMMode }) => {
+const CharacterSelector = ({ onSelect, onDMMode }) => {
   return (
     <div style={{
       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh',
@@ -345,7 +350,7 @@ const CharacterSelector = ({ onSelect, onEdit, onDMMode }) => {
 
         <div style={{ display: 'flex', gap: 30, flexWrap: 'wrap', justifyContent: 'center' }}>
           {DATABASE.map(ch => (
-            <div key={ch.id} style={{ width: 220, background: 'rgba(15, 26, 6, 0.85)', border: '1px solid var(--c-edge)', padding: '30px 20px', textAlign: 'center', transition: 'all 0.2s ease', position: 'relative', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }} className="char-card">
+            <div key={ch.id} style={{ width: 220, background: 'rgba(15, 26, 6, 0.85)', border: '1px solid var(--c-edge)', padding: '30px 20px', textAlign: 'center', transition: 'all 0.2s ease', position: 'relative', boxShadow: '0 10px 30px rgba(0,0,0,0.5)', cursor: 'pointer' }} className="char-card" onClick={() => onSelect(ch)}>
               <span className="corner-tr"></span>
               <span className="corner-bl"></span>
               <div style={{ width: 90, height: 90, background: 'linear-gradient(135deg, var(--c-edge) 0%, #000 100%)', borderRadius: '50%', margin: '0 auto 15px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, fontFamily: 'var(--font-pixel)', border: '2px solid var(--c-accent)' }}>
@@ -353,11 +358,6 @@ const CharacterSelector = ({ onSelect, onEdit, onDMMode }) => {
               </div>
               <h3 style={{ margin: '0 0 8px 0', fontSize: 16, fontFamily: 'var(--font-pixel)', lineHeight: 1.4 }}>{ch.meta.name}</h3>
               <div style={{ fontSize: 12, color: 'var(--c-ink-d)', marginBottom: 15, fontFamily: 'var(--font-mono)' }}>{ch.meta.classes.map(c => c.name).join(' / ')} nv {ch.meta.level}</div>
-              
-              <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
-                <button className="sel-btn play" onClick={() => onSelect(ch)}>JOGAR</button>
-                <button className="sel-btn edit" onClick={() => onEdit(ch)}>EDITAR</button>
-              </div>
             </div>
           ))}
 
@@ -417,12 +417,12 @@ const App = () => {
 
   return (
     <>
-      {editorTarget ? (
+      {editorTarget && window.CharacterEditor ? (
         <CharacterEditor ch={editorTarget} onSave={handleSave} onBack={handleBack} />
       ) : activeCharacter ? (
-        <Sheet key={activeCharacter.id} initialData={activeCharacter} onBack={handleBack} />
+        <Sheet key={activeCharacter.id} initialData={activeCharacter} onBack={handleBack} onEdit={() => handleEdit(activeCharacter)} />
       ) : (
-        <CharacterSelector onSelect={handleSelect} onEdit={handleEdit} onDMMode={() => setDmMode(true)} />
+        <CharacterSelector onSelect={handleSelect} onDMMode={() => setDmMode(true)} />
       )}
 
       {tiles && (

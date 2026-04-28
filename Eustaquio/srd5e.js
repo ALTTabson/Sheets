@@ -24,6 +24,11 @@ export const SKILL_LABELS_EN = {
   sleightOfHand: "Sleight of Hand", stealth: "Stealth", survival: "Survival",
 };
 
+// DMG pg. 288 - Spell Points Variant Cost
+export const SPELL_POINT_COSTS = {
+  1: 2, 2: 3, 3: 5, 4: 6, 5: 7, 6: 9, 7: 10, 8: 11, 9: 13
+};
+
 export function abilityMod(score) {
   return Math.floor((score - 10) / 2);
 }

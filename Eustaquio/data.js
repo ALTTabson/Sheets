@@ -206,12 +206,13 @@ const DATABASE = [
     },
     actionEconomy: { action: true, bonus: true, reaction: true, movement: 30 },
     resources: {
-      chronalShift: { max: 2, current: 2, resetsOn: "longRest", label: "Chronal Shift", die: null, icon: "clock" }
+      chronalShift: { max: 2, current: 2, resetsOn: "longRest", label: "Chronal Shift", die: null, icon: "clock" },
+      momentaryStasis: { max: 5, current: 5, resetsOn: "longRest", label: "Momentary Stasis", die: null, icon: "eye" }
     },
     features: {
       actions: [
         { id: "dagger", name: "Dagger", attack: "+5", damage: "1d4+2", damageType: "piercing", desc: "Finesse, Light, Thrown (20/60)" },
-        { id: "momentaryStasis", name: "Momentary Stasis", desc: "Como ação, force uma criatura Grande ou menor a fazer um teste de Resistência de CON. Se falhar, fica Incapacitada e seu deslocamento é 0 até o final do seu próximo turno. Usos: INT mod (5) / longo." }
+        { id: "momentaryStasis", name: "Momentary Stasis", desc: "Como ação, force uma criatura Grande ou menor a fazer um teste de Resistência de CON. Se falhar, fica Incapacitada e seu deslocamento é 0 até o final do seu próximo turno. Usos: INT mod (5) / longo.", resource: "momentaryStasis" }
       ],
       bonusActions: [
         { id: "telekinetic", name: "Telekinetic Shove", desc: "Mover criatura 5ft (Força save vs CD Magia)." }
@@ -241,6 +242,8 @@ const DATABASE = [
       personality: ""
     },
     spells: {
+      system: "points",
+      points: { max: 44, current: 44 },
       castingAbility: "INT",
       slots: {
         1: { max: 4, current: 4 },
